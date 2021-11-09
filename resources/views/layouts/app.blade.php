@@ -81,7 +81,8 @@
 
         <footer class="fixed-bottom">
             <center>
-                Copyright Larapus Made With Love - {{date('Y')}}
+                Copyright &copy; Larapus Made With Love & Mineral Water
+                - {{date('Y')}}
             </center>
         </footer>
     </div>

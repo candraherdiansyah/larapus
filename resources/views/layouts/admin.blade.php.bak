@@ -40,7 +40,7 @@
 
   <!-- Main Sidebar Container -->
   @include('layouts.partials.sidebar')
-  <!-- End Main Sidebar -->
+  <!-- End Main Sidebar-->
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
