@@ -56,7 +56,7 @@
                             <label for="">Masukan Cover Buku</label>
                             <br>
                             <img src="{{ $book->image() }}" height="75" style="padding:10px;" />
-                            <input type="file" name="cover" class="form-control">
+                            <input type="file" name="cover" value="{{$book->cover}}" class="form-control">
                         </div>
                         <div class="form-group">
                             <button type="reset" class="btn btn-outline-warning">Reset</button>

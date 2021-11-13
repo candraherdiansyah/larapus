@@ -22,6 +22,11 @@
                         <label for=""> Nama Penulis</label>
                         <input type="text" name="name" value="{{$author->name}}" class="form-control" readonly>
                     </div>
+                    <div class="form-group">Daftar Buku</label>
+                        @foreach($author->books as $data)
+                            <li>{{$data->title}}</li>
+                        @endforeach
+                    </div>
                     <div class="form-group">
                         <a href="{{url('admin/author')}}" class="btn btn-block btn-outline-primary">Kembali</a>
                     </div>

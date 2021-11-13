@@ -22,10 +22,13 @@ class Book extends Model
 
     public function image()
     {
+        // jika ada data dari cover dan juga file yang di folder public images books itu ada
+        // yang sesuai dengan namanya
+        // maka kita akan memangiil file nya di dalam image book nama foto
         if ($this->cover && file_exists(public_path('images/books/' . $this->cover))) {
             return asset('images/books/' . $this->cover);
         } else {
-            return asset('images/no_image.png');
+            return asset('images/no_image.jpg');
         }
     }
 

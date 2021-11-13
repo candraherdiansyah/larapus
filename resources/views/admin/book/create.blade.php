@@ -32,6 +32,7 @@
                         <div class="form-group">
                             <label for="">Nama Penulis Buku</label>
                             <select name="author_id" class="form-control @error('author_id') is-invalid @enderror" >
+                                <option value="">Pilih Penulis</option>
                                 @foreach($author as $data)
                                     <option value="{{$data->id}}">{{$data->name}}</option>
                                 @endforeach
