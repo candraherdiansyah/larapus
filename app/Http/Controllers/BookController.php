@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Author;
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Session;
 
 class BookController extends Controller
 {
@@ -61,6 +62,10 @@ class BookController extends Controller
         }
         $book->amount = $request->amount;
         $book->save();
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "data berhasil dibuat",
+        ]);
         return redirect()->route('books.index');
     }
 
@@ -118,6 +123,10 @@ class BookController extends Controller
         }
         $book->amount = $request->amount;
         $book->save();
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "data berhasil diedit",
+        ]);
         return redirect()->route('books.index');
 
     }
@@ -133,6 +142,11 @@ class BookController extends Controller
         $book = Book::findOrFail($id);
         $book->deleteImage();
         $book->delete();
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "data berhasil dihapus",
+        ]);
+
         return redirect()->route('books.index');
     }
 }

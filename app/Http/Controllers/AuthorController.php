@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Author;
 use Illuminate\Http\Request;
+use Session;
 
 class AuthorController extends Controller
 {
@@ -45,6 +46,10 @@ class AuthorController extends Controller
         $author = new Author;
         $author->name = $request->name;
         $author->save();
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Berhasil menyimpan $author->name",
+        ]);
         return redirect()->route('author.index');
     }
 
@@ -89,6 +94,11 @@ class AuthorController extends Controller
         $author = Author::findOrFail($id);
         $author->name = $request->name;
         $author->save();
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Berhasil menyimpan $author->name",
+        ]);
+
         return redirect()->route('author.index');
     }
 
@@ -102,6 +112,10 @@ class AuthorController extends Controller
     {
         $author = Author::findOrFail($id);
         $author->delete();
+        Session::flash("flash_notification", [
+            "level" => "success",
+            "message" => "Penulis berhasil dihapus",
+        ]);
         return redirect()->route('author.index');
 
     }
