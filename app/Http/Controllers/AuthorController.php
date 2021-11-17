@@ -110,8 +110,9 @@ class AuthorController extends Controller
      */
     public function destroy($id)
     {
-        $author = Author::findOrFail($id);
-        $author->delete();
+        if (!Author::destroy($id)) {
+            return redirect()->back();
+        }
         Session::flash("flash_notification", [
             "level" => "success",
             "message" => "Penulis berhasil dihapus",
